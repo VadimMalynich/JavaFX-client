@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="430.0" prefWidth="700.0" style="-fx-background-color: #FAF0E6;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AdminMenuController">
+    <children>
+        <TabPane prefHeight="400.0" prefWidth="700.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+            <Tab text="Пользователи">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="usersTable" layoutX="72.0" layoutY="131.0" prefHeight="200.0" prefWidth="560.0">
+                          <columns>
+                            <TableColumn fx:id="idUserColumn" prefWidth="48.80005645751953" text="ID" />
+                            <TableColumn fx:id="loginUserColumn" prefWidth="165.5999755859375" text="Логин" />
+                              <TableColumn fx:id="passwordUserColumn" prefWidth="195.199951171875" text="Пароль" />
+                              <TableColumn fx:id="roleUserColumn" prefWidth="149.59994506835938" text="Роль" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="addUserButton" layoutX="72.0" layoutY="88.0" mnemonicParsing="false" prefWidth="69.0" text="Добавить">
+                           <font>
+                              <Font name="Forte" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="deleteUserButton" layoutX="176.0" layoutY="86.0" mnemonicParsing="false" text="Удалить" />
+                        <Button fx:id="saveUserChangesButton" layoutX="281.0" layoutY="86.0" mnemonicParsing="false" text="Сохранить изменения" />
+                        <Label fx:id="registeredUsersLabel" layoutX="72.0" layoutY="14.0" text="Зарегистрированных пользователей: 0">
+                           <font>
+                              <Font name="Forte" size="20.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="findUserTextField" layoutX="72.0" layoutY="47.0" prefHeight="26.0" prefWidth="175.0" promptText="введите логин для поиска" />
+                        <Button fx:id="findUserButton" layoutX="281.0" layoutY="48.0" mnemonicParsing="false" text="Поиск" />
+                        <Button fx:id="cancelFindUserButton" layoutX="352.0" layoutY="47.0" mnemonicParsing="false" text="Отмена поиска" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+                <Tab text="Заявки компаний">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <Button fx:id="saveCompaniesTableEdit" layoutX="61.0" layoutY="44.0" mnemonicParsing="false" text="Сохранить изменения в таблице">
+                                    <font>
+                                        <Font name="Forte" size="14.0" />
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </Button>
+                                <TableView fx:id="companiesTable" layoutX="61.0" layoutY="85.0" prefHeight="252.0" prefWidth="580.0">
+                                    <columns>
+                                        <TableColumn fx:id="companyLoginColumn" prefWidth="132.79999542236328" text="Логин" />
+                                        <TableColumn fx:id="companyNameColumn" prefWidth="145.5999755859375" text="Имя компании" />
+                                        <TableColumn fx:id="companyCategoryColumn" prefWidth="144.0" text="Категория товаров" />
+                                        <TableColumn fx:id="companyStatusColumn" prefWidth="157.59994506835938" text="Статус" />
+                                    </columns>
+                                </TableView>
+                                <Text fx:id="registeredCompaniesLabel" layoutX="61.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Зарегистрированные компании">
+                                    <font>
+                                        <Font name="Forte" size="18.0" />
+                                    </font>
+                                </Text>
+                                <Text fx:id="NoRegisteredCompaniesLabel" layoutX="180.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Зарегистрированных&#10;компаний нет" textAlignment="CENTER">
+                                    <font>
+                                        <Font name="Forte" size="36.0" />
+                                    </font>
+                                </Text>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="addWarehouseTab" text="Добавление склада">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <VBox layoutX="76.0" layoutY="30.0" prefHeight="199.0" prefWidth="267.0">
+                                    <children>
+                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Категория товаров" textAlignment="CENTER" wrappingWidth="266.9368362426758">
+                                            <font>
+                                                <Font name="Forte" size="30.0" />
+                                            </font>
+                                        </Text>
+                                        <TextField fx:id="warehouseCategoryTextField">
+                                            <font>
+                                                <Font name="Forte" size="14.0" />
+                                            </font>
+                                        </TextField>
+                                        <Text strokeType="OUTSIDE" strokeWidth="0.0">
+                                            <font>
+                                                <Font size="16.0" />
+                                            </font>
+                                        </Text>
+                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Вместимость склада" textAlignment="CENTER" wrappingWidth="266.9368362426758">
+                                            <font>
+                                                <Font name="Forte" size="28.0" />
+                                            </font>
+                                        </Text>
+                                        <TextField fx:id="warehouseCapacityTextField" promptText="1000&lt;x&lt;10000">
+                                            <font>
+                                                <Font name="Forte" size="14.0" />
+                                            </font>
+                                        </TextField>
+                                        <Text strokeType="OUTSIDE" strokeWidth="0.0">
+                                            <font>
+                                                <Font size="16.0" />
+                                            </font>
+                                        </Text>
+                                        <Button fx:id="clearButton" mnemonicParsing="false" prefHeight="39.0" prefWidth="80.0" text="Очистить">
+                                            <font>
+                                                <Font name="Forte" size="14.0" />
+                                            </font>
+                                            <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                            </cursor>
+                                        </Button>
+                                    </children>
+                                </VBox>
+                                <Button fx:id="addWarehouseButton" layoutX="76.0" layoutY="288.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="188.0" text="Добавить склад">
+                                    <font>
+                                        <Font name="Forte" size="18.0" />
+                                    </font>
+                                </Button>
+                            </children></AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Склады">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView fx:id="warehousesTable" layoutX="65.0" layoutY="128.0" prefHeight="200.0" prefWidth="553.0">
+                                    <columns>
+                                        <TableColumn fx:id="warehousesIDColumn" prefWidth="75.0" text="ID" />
+                                        <TableColumn fx:id="warehouseCategoryColumn" prefWidth="196.79998779296875" text="Категория товаров" />
+                                        <TableColumn fx:id="warehousesCurrentAmountColumn" prefWidth="138.4000244140625" text="Загруженность склада" />
+                                        <TableColumn fx:id="warehouseCapacityColumn" prefWidth="141.5999694824219" text="Вместимость" />
+                                    </columns>
+                                </TableView>
+                                <Text fx:id="listWarehousesLabel" layoutX="65.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Список складов">
+                                    <font>
+                                        <Font name="Forte" size="18.0" />
+                                    </font>
+                                </Text>
+                                <Button fx:id="saveCompaniesTableEdit1" layoutX="65.0" layoutY="60.0" mnemonicParsing="false" text="Сохранить изменения в таблице">
+                                    <font>
+                                        <Font name="Forte" size="14.0" />
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </Button>
+                                <Button fx:id="editWarehousesButton" layoutX="65.0" layoutY="60.0" mnemonicParsing="false" text="Редактировать склады">
+                                    <font>
+                                        <Font name="Forte" size="14.0" />
+                                    </font>
+                                </Button>
+                                <Button fx:id="deleteWarehousesButton" layoutX="285.0" layoutY="60.0" mnemonicParsing="false" text="Удалить склад">
+                                    <font>
+                                        <Font name="Forte" size="14.0" />
+                                    </font>
+                                </Button>
+                                <Text fx:id="NoRegisteredWarehousesLabel" layoutX="175.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Вы не добавили ещё&#10;ни один склад" textAlignment="CENTER">
+                                    <font>
+                                        <Font name="Forte" size="36.0" />
+                                    </font>
+                                </Text>
+                                <Button fx:id="cancelEditWarehousesButton" layoutX="427.0" layoutY="60.0" mnemonicParsing="false" text="Отменить редактирование">
+                                    <font>
+                                        <Font name="Forte" size="14.0" />
+                                    </font>
+                                </Button>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Заявки на склад">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView fx:id="requestTable" layoutX="10.0" layoutY="107.0" prefHeight="254.0" prefWidth="682.0">
+                                    <columns>
+                                        <TableColumn fx:id="requestLoginColumn" prefWidth="119.20001792907715" text="Логин" />
+                                        <TableColumn fx:id="categoryColumn" prefWidth="161.5999755859375" text="Категория товаров" />
+                                        <TableColumn fx:id="productNameColumn" prefWidth="142.4000244140625" text="Наименование товара" />
+                                        <TableColumn fx:id="quantityColumn" prefWidth="80.79995727539062" text="Количество" />
+                                        <TableColumn fx:id="defectColumn" prefWidth="63.99993896484375" text="\% брака" />
+                                        <TableColumn fx:id="requestStatusColumn" prefWidth="115.2000732421875" text="Статус" />
+                                    </columns>
+                                </TableView>
+                                <Label fx:id="companiesRequestsInfo" layoutX="15.0" layoutY="14.0" text="Заявки компаний">
+                                    <font>
+                                        <Font name="Forte" size="30.0" />
+                                    </font>
+                                </Label>
+                                <Button fx:id="deleteRequestButton" layoutX="572.0" layoutY="75.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="119.0" text="Удалить заявку">
+                                    <font>
+                                        <Font name="Forte" size="14.0" />
+                                    </font>
+                                </Button>
+                                <Label fx:id="noRequestLabel" layoutX="85.0" layoutY="70.0" prefHeight="130.0" prefWidth="532.0" text="Компании ещё не оставили &#10;ни одну заявку." textAlignment="CENTER">
+                                    <font>
+                                        <Font name="Forte" size="41.0" />
+                                    </font>
+                                </Label>
+                                <Button fx:id="saveCompaniesTableEdit2" layoutX="10.0" layoutY="75.0" mnemonicParsing="false" text="Сохранить изменения в таблице">
+                                    <font>
+                                        <Font name="Forte" size="14.0" />
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </Button>
+                                <Button fx:id="checkDefectButton" layoutX="282.0" layoutY="75.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="227.0" text="Проверить товары на брак">
+                                    <font>
+                                        <Font name="Forte" size="14.0" />
+                                    </font>
+                                </Button>
+                                <Button fx:id="filtrationQuantityButton" layoutX="500.0" layoutY="5.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="195.0" text="Фильтрация по количеству">
+                                    <font>
+                                        <Font name="Forte" size="14.0" />
+                                    </font>
+                                </Button>
+                                <TextField fx:id="minQuantityFiltrationField" layoutX="365.0" layoutY="5.0" prefHeight="18.0" prefWidth="62.0" promptText="min" />
+                                <TextField fx:id="maxQuantityFiltrationField" layoutX="433.0" layoutY="5.0" prefHeight="18.0" prefWidth="62.0" promptText="max" />
+                                <TextField fx:id="minDefectFiltrationField" layoutX="365.0" layoutY="36.0" prefHeight="18.0" prefWidth="62.0" promptText="min" />
+                                <TextField fx:id="maxDefectFiltrationField" layoutX="433.0" layoutY="36.0" prefHeight="18.0" prefWidth="62.0" promptText="max" />
+                                <Button fx:id="filtrationDefectButton" layoutX="500.0" layoutY="35.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="195.0" text="Фильтрация по браку">
+                                    <font>
+                                        <Font name="Forte" size="14.0" />
+                                    </font>
+                                </Button>
+                                <Button fx:id="cancelFiltrationButton" layoutX="282.0" layoutY="22.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="71.0" text="Сброс">
+                                    <font>
+                                        <Font name="Forte" size="14.0" />
+                                    </font>
+                                </Button>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            <Tab text="Диаграмма пользователей">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="warehousesStackedBarChartButton" layoutX="546.0" layoutY="151.0" mnemonicParsing="false" text="Диаграмма&#10;загруженности&#10;складов" textAlignment="CENTER">
+                           <font>
+                              <Font name="Forte" size="14.0" />
+                           </font>
+                        </Button>
+                        <PieChart fx:id="usersPieChart" layoutX="31.0" layoutY="-1.0" prefHeight="370.0" prefWidth="500.0" title="Пользователи" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            </tabs>
+        </TabPane>
+        <Button fx:id="returnButton" layoutX="630.0" layoutY="400.0" mnemonicParsing="false" text="Выход">
+            <font>
+                <Font name="Forte" size="14.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+      <Button fx:id="updateButton" layoutX="540.0" layoutY="400.0" mnemonicParsing="false" text="Обновить">
+         <font>
+            <Font name="Forte" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+    </children>
+</AnchorPane>
